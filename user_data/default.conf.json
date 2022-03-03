@@ -1,20 +1,34 @@
 {
 
+	// bot-specific settings, defined in config.bot_default.json, config.bot1.json etc.
+
+	"bot_name": "bot_default",
+	"api_server": {
+		"listen_port": 8080
+	},
+
+	"tradable_balance_ratio": 0.99,
+	"stake_amount": 100,
+	"max_open_trades": 10,
+
+	// common config settings
+
 	"api_server": {
 			"enabled": true,
 			"listen_ip_address": "0.0.0.0",
+			"listen_port": 8080, // repeat this from above
 			"verbosity": "error",
 			"enable_openapi": false,
 			"CORS_origins": [],
-			"jwt_secret_key": "XXXX",
-			"username": "XXXX",
-			"password": "XXXX"
+			"jwt_secret_key": "XXXXXXXXXX",
+			"username": "XXXXXXXXXX",
+			"password": "XXXXXXXXXX"
 	},
 
 	"telegram": {
 			"enabled": false,
-			"token": "XXXX",
-			"chat_id": "XXXX"
+			"token": "XXXXXXXXXX",
+			"chat_id": "XXXXXXXXXX"
 	},
 
 	"fiat_display_currency": "USD",
