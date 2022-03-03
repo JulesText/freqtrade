@@ -2,20 +2,33 @@
 version: '3'
 services:
 
+  # start by defining bot name
   bot_default:
+    # the docker image to pull
+    # work in 'develop' branch
     image: freqtradeorg/freqtrade:develop
+    # bot should restart after boot unless manually stopped
     restart: unless-stopped
+    # repeat bot name
     container_name: bot_default
+    # map docker files to osx finder files
     volumes:
+      # add files for instance
+      # - "./freqtrade/exchange/exchange.py:/freqtrade/freqtrade/exchange/exchange.py"
+      # or whole folders
+      # - "./freqtrade/exchange:/freqtrade/freqtrade/exchange"
       - "./user_data:/freqtrade/user_data"
+    # set bot port i.e. 8080, 8081 ...
     ports:
       - "127.0.0.1:8080:8080"
     # the command to execute when bot is initiated
-    # the only way to get the config file modular seems to be to
-    # call the config.bot_default.json script from the shell command each time a command is run (annoying), i.e.
-    # $ freqtrade download-data -t 4h --days 245 --config user_data/config.bot_default.json
-    # but we keep the config.json file complete so that bot_default never needs this extra command
-    # 
+      # the only way to get the config file modular seems to be to
+      # call the config.bot_default.json script from the shell command each time a command is run (annoying), i.e.
+      # $ freqtrade download-data -t 4h --days 245 --config user_data/config.bot_default.json
+      # but we keep the config.json file complete so that bot_default never needs this extra command
+      # also we don't need to do this once the bot is setup as the below 'trade' command can take this multiple config command automatically
+    # anyway, set log file, sql file and config extension to bot name, i.e. 'bot_default', 'bot1' ...
+    # set strategy to run when bot starts, i.e. 'SampleStrategy'
     command: >
       trade
       --logfile /freqtrade/user_data/logs/bot_default.log
