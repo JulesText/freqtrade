@@ -13,7 +13,8 @@ freqtrade-profit-plot.html
 freqtrade/rpc/api_server/ui/*
 
 # JulesText exceptions
-!user_data/default.conf.json
+!user_data/example.config.json
+!user_data/example.config.fbot_default.json
 !user_data/strategies
 !user_data/scripts
 !user_data/trades

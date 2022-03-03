@@ -2,15 +2,15 @@
 version: '3'
 services:
 
-  # start by defining bot name
-  bot_default:
+  # start by defining container / bot name, must be unique to docker
+  fbot_default:
     # the docker image to pull
     # work in 'develop' branch
     image: freqtradeorg/freqtrade:develop
     # bot should restart after boot unless manually stopped
     restart: unless-stopped
     # repeat bot name
-    container_name: bot_default
+    container_name: fbot_default
     # map docker files to osx finder files
     volumes:
       # add files for instance
@@ -27,60 +27,60 @@ services:
       # $ freqtrade download-data -t 4h --days 245 --config user_data/config.bot_default.json
       # but we keep the config.json file complete so that bot_default never needs this extra command
       # also we don't need to do this once the bot is setup as the below 'trade' command can take this multiple config command automatically
-    # anyway, set log file, sql file and config extension to bot name, i.e. 'bot_default', 'bot1' ...
+    # anyway, set log file, sql file and config extension to bot name, i.e. 'fbot_default', 'fbot1' ...
     # set strategy to run when bot starts, i.e. 'SampleStrategy'
     command: >
       trade
-      --logfile /freqtrade/user_data/logs/bot_default.log
-      --db-url sqlite:////freqtrade/user_data/trades/bot_default.sqlite
+      --logfile /freqtrade/user_data/logs/fbot_default.log
+      --db-url sqlite:////freqtrade/user_data/trades/fbot_default.sqlite
       --config /freqtrade/user_data/config.json
-      --config /freqtrade/user_data/config.bot_default.json
-      --strategy SampleStrategy
+      --config /freqtrade/user_data/config.fbot_default.json
+      --strategy DevilStra_JK
 
-  bot1:
+  fbot1:
     image: freqtradeorg/freqtrade:develop
     restart: unless-stopped
-    container_name: bot1
+    container_name: fbot1
     volumes:
       - "./user_data:/freqtrade/user_data"
     ports:
       - "127.0.0.1:8081:8081"
     command: >
       trade
-      --logfile /freqtrade/user_data/logs/bot1.log
-      --db-url sqlite:////freqtrade/user_data/trades/bot1.sqlite
+      --logfile /freqtrade/user_data/logs/fbot1.log
+      --db-url sqlite:////freqtrade/user_data/trades/fbot1.sqlite
       --config /freqtrade/user_data/config.json
-      --config /freqtrade/user_data/config.bot1.json
-      --strategy SampleStrategy
+      --config /freqtrade/user_data/config.fbot1.json
+      --strategy DevilStra
 
-  bot2:
+  fbot2:
     image: freqtradeorg/freqtrade:develop
     restart: unless-stopped
-    container_name: bot2
+    container_name: fbot2
     volumes:
       - "./user_data:/freqtrade/user_data"
     ports:
       - "127.0.0.1:8082:8082"
     command: >
       trade
-      --logfile /freqtrade/user_data/logs/bot2.log
-      --db-url sqlite:////freqtrade/user_data/trades/bot2.sqlite
+      --logfile /freqtrade/user_data/logs/fbot2.log
+      --db-url sqlite:////freqtrade/user_data/trades/fbot2.sqlite
       --config /freqtrade/user_data/config.json
-      --config /freqtrade/user_data/config.bot2.json
-      --strategy SampleStrategy
+      --config /freqtrade/user_data/config.fbot2.json
+      --strategy HourBasedStrategy
 
-  bot3:
+  fbot3:
     image: freqtradeorg/freqtrade:develop
     restart: unless-stopped
-    container_name: bot3
+    container_name: fbot3
     volumes:
       - "./user_data:/freqtrade/user_data"
     ports:
       - "127.0.0.1:8083:8083"
     command: >
       trade
-      --logfile /freqtrade/user_data/logs/bot3.log
-      --db-url sqlite:////freqtrade/user_data/trades/bot3.sqlite
+      --logfile /freqtrade/user_data/logs/fbot3.log
+      --db-url sqlite:////freqtrade/user_data/trades/fbot3.sqlite
       --config /freqtrade/user_data/config.json
-      --config /freqtrade/user_data/config.bot3.json
-      --strategy SampleStrategy
+      --config /freqtrade/user_data/config.fbot3.json
+      --strategy Supertrend

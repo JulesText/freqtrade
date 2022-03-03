@@ -1,8 +1,8 @@
 {
 
-	// bot-specific settings, defined in config.bot_default.json, config.bot1.json etc.
+	// bot-specific settings, defined in config.fbot_default.json, config.fbot1.json etc.
 
-	"bot_name": "bot_default",
+	"bot_name": "fbot_default",
 	"api_server": {
 		"listen_port": 8080
 	},
