@@ -12,9 +12,13 @@ freqtrade-plot.html
 freqtrade-profit-plot.html
 freqtrade/rpc/api_server/ui/*
 
-# JulesText
+# JulesText exceptions
+!user_data/config
+user_data/config/*
 !user_data/config/bot_template_min.json
 !user_data/config/template_default.json
+!user_data/trades
+user_data/trades/*
 
 # Macos related
 .DS_Store

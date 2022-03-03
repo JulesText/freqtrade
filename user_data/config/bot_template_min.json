@@ -1,0 +1,13 @@
+
+{
+
+	"bot_name": "bot_default",
+  "api_server": {
+    "listen_port": 8080
+  },
+
+	"tradable_balance_ratio": 0.99,
+	"stake_amount": 100,
+	"max_open_trades": 10,
+
+}
