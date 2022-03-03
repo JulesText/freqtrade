@@ -12,6 +12,10 @@ freqtrade-plot.html
 freqtrade-profit-plot.html
 freqtrade/rpc/api_server/ui/*
 
+# JulesText
+!user_data/config/bot_template_min.json
+!user_data/config/template_default.json
+
 # Macos related
 .DS_Store
 
